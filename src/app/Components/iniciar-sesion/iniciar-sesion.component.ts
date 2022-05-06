@@ -81,6 +81,14 @@ export class IniciarSesionComponent implements OnInit {
     localStorage.clear();
   }
 
+  registrar_profesor(){
+    this.router.navigateByUrl('./registrar-profesor');
+  }
+
+  registrar_estudiante(){
+    this.router.navigateByUrl('./registrar-estudiante');
+  }
+
   registrar(usuario: Usuario) {
     var yaExiste: boolean = false;
     debugger;

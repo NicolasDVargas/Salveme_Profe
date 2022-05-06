@@ -28,11 +28,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('');
   }
 
-  revizarAdmin(): boolean {
+  revizarProfe(): boolean {
     var nomUsuario = localStorage.getItem('user');
     if (nomUsuario != null) {
-      for (let adm of this._profesorService.profesores) {
-        if (adm.nombre == nomUsuario) {
+      for (let prof of this._profesorService.profesores) {
+        if (prof.nombre == nomUsuario) {
           return true;
         }
       }

@@ -13,8 +13,13 @@ export class UsuariosService {
   
   constructor() { }
 
-  public agregar(usu : Usuario){
-    this.vertedero.push(usu)
+  public usuario:Usuario ;
+
+  public agregar(nombre: string,contra: string,email: string, carrera: string, edad:number, semestre:number){
+    this.usuario.crear(this.id,nombre,contra,email, carrera, edad, semestre);
+    this.id++;
+    this.vertedero.push(this.usuario);
+
   }
 
   public obtener(){

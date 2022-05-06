@@ -4,7 +4,7 @@ export class Profesor{
     nombre: string;
     contra: string;
     email: string;
-    Materias: String[]=[];
+    Materias: string;
     puntaje: number;
     numeroDeReviews:number;
 
@@ -12,7 +12,7 @@ export class Profesor{
        
     }
 
-    crear (nombre:string,contra:string){
+    crear (id:number,nombre:string,contra:string,materias:string,email:string){
         this.nombre=nombre;
         this.contra=contra;
     }

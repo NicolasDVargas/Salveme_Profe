@@ -6,19 +6,19 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navPrincipalDiv">
-      <ul class="navPrincipal">
-        <li class="nav-item">
-          <a class="button" role="button" aria-current="page" (click)='home()'>Home</a>
-        </li>      
-        <li *ngIf="revizarAdmin() else elseBlock2" class="nav-item">
+      <ul class="navPrincipal">      
+        <li *ngIf="revizarProfe() else elseBlock2" class="nav-item">
           <a class="button" role="button" (click)="inventario()">Inventario</a>
         </li> 
-        <li *ngIf="revizarAdmin()" class="nav-item">
+        <li *ngIf="revizarProfe()" class="nav-item">
           <a class="button" role="button" (click)="cerrarSesion()">Cerrar sesion</a>
         </li>        
         <ng-template #elseBlock2>
           <li *ngIf="revizar() else elseBlock" class="nav-item">
             <a class="button" role="button" (click)="perfil()">Perfil</a>
+          </li>
+          <li *ngIf="revizar()" class="nav-item">
+            <a class="button" role="button" aria-current="page" (click)='home()'>Home</a>
           </li>
           <li *ngIf="revizar()" class="nav-item">
             <a class="button" role="button" (click)="carrito()">Carrito</a>

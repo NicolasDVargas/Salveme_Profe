@@ -13,10 +13,11 @@ export class ProfesorService {
 
   constructor() { }
 
-  public agregar(nombre: string, contra: string){
+  public agregar(nombre: string, contra:string,Materias:string,email:string){
     this.profeActual=new Profesor();
-    this.profeActual.crear(nombre,contra);
+    this.profeActual.crear(this.id,nombre,contra,Materias,email);
     this.profesores.push(this.profeActual);
+    this.id++;
     this.profeActual=new Profesor;
   }
 
@@ -25,6 +26,6 @@ export class ProfesorService {
   }
 
   public limpiar(){
-    this.profeActual=new Profesor;
+    this.profeActual=new Profesor();
   }
 }

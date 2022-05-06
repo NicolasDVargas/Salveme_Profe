@@ -1,0 +1,33 @@
+<div class="formContainer">
+    <form>
+        <div class="formgroup">
+            <label for="Nombre-profesor">Nombre: </label>
+            <input [(ngModel)]="profesor.nombre" name="nombre" type="text" class="form-control" id="Nombre-profesor" placeholder="Ingrese aca el nombre del profesor" >
+        </div>
+        <div class="formgroup">
+            <label for="contrasenna-profesors">Contraseña: </label>
+            <input [(ngModel)]="profesor.contra"  name="contra" type="password" class="form-control" id="Contraprofesor" placeholder="Ingrese aca su contraseña">
+        </div>
+        <div class="formgroup">
+            <label for="Costoprofesor">Email: </label>
+            <input [(ngModel)]="profesor.email" name="email" type="email" class="form-control" id="Emailprofesor" placeholder="Ingrese su email">
+        </div>
+        <div class="formgroup">
+            <label for="Categoria-profesor">Categoria</label>
+            <select [(ngModel)]="profesor.Materias"  name="tipo" class="form-control" id="Categoria-profesor" >
+                <option class="option">Calculo Integral</option>
+                <option class="option">Quimica Organica</option>
+                <option class="option">Fisica Mecanica</option>
+                <option class="option">Calculo vectorial</option>
+                <option class="option">Electricidad y magnetismo</option>
+                <option class="option">Analisis numerico</option>
+                <option class="option">Estadistica</option>
+            </select>
+        </div>
+        <div class="buttonsDiv">
+            <button type="submit" class="buttonS" (click)="registrar()">Registrar</button>
+            <button type="button" class="buttonC" (click)="cancelar()">Cancelar</button>
+        </div>
+    </form>
+</div>
+

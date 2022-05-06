@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { IniciarSesionComponent } from './Components/iniciar-sesion/iniciar-sesion.component';
+import { RegistrarProfesorComponent } from './Components/registrar-profesor/registrar-profesor.component';
+import { RegistrarEstudianteComponent } from './Components/registrar-estudiante/registrar-estudiante.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IniciarSesionComponent,
-    HeaderComponent 
+    HeaderComponent,
+    RegistrarProfesorComponent,
+    RegistrarEstudianteComponent 
   ],
   imports: [
     FormsModule,
