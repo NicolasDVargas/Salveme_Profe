@@ -1,0 +1,74 @@
+div.background{
+    width: 100vw;
+    height: 100vh;
+    background-color:#eb7d6f ;
+  } 
+  
+  div.form-Container {
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 500px;
+      padding-top: 3%;
+      height: 600px;
+      background-color: #ffe677;
+      border-radius: 8px;
+      
+    }
+  
+   
+  div.form-Container h2{
+        text-align: center;
+        color: black;
+        font-weight: 700;
+    }
+  div.form-Container form {
+      
+      width: 80%;
+      margin-left: 50px;
+    }
+  div.form-Container form div.formgroup {
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 0 20px;
+    }
+  div.form-Container form div.formgroup label{
+        margin-bottom: 5px;
+        font-family: "Montserrat", sans-serif;
+        color: black;
+        font-size: 15px;
+        
+    }
+  div.form-Container form div.formgroup input{
+        padding-inline-start: 5px;
+        caret-color: white;
+        height: 30px;
+        width: 100%;
+        border: none;
+        background-color: #f4e6a7;
+        border-radius: 8px;
+        color: white;
+    }
+  div.form-Container   button{
+        height: 50px;
+        width: 190px;
+        margin-left: 5px;
+        border: none;
+        border-radius: 8px;
+        background-color: #eb7d6f;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+  div.form-Container  button:hover{
+        background-color: white;
+      color: black;
+      border-radius: 8px;
+    }

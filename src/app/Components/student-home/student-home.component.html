@@ -1,0 +1,24 @@
+<app-create-class-modal *ngIf="enabledCreateClass" [userId]="userId" [teacherId]="teacherId" (closeAlert)="onClose()">
+</app-create-class-modal>
+<app-review-modal *ngIf="enabledReview" [teacher]="selectedTeacher" (closeAlert)="onCloseReview()"></app-review-modal>
+
+<section>
+  <form class="search-container">
+    <input type="text" id="search-bar" placeholder="Ingrese su materia">
+    
+  </form>
+
+  <div class="container">
+    <div class="box" *ngFor="let teacher of teachers">
+      <h1>{{teacher.materias}}</h1>
+      <hr />
+      <h4>{{teacher.nombre}}</h4>
+      <h2>Calificación: {{teacher.puntaje}}</h2>
+      <div class="buttons-container">
+        <button (click)="onOpenProfile(teacher)">Ver perfil</button>
+        <button (click)="onOpen(teacher.id)">Agendar clase</button>
+        <button>Olvidar</button>
+      </div>
+    </div>
+  </div>
+</section>

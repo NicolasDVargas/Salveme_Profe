@@ -1,3 +1,6 @@
+
+
+
 .container{
     font: normal 60px Mouser;
     display: flex;
@@ -18,8 +21,10 @@
 .login {
     color: white;
     margin-top: 2%;
-    text-shadow: 0 0 10px black;
     text-decoration: none;
+}
+.backContainer{
+    background-color: #FDDF59;
 }
 
 

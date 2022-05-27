@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Profesor } from 'src/app/Models/Profesor';
-import { Usuario } from 'src/app/Models/Usuario';
-import { ProfesorService } from 'src/app/Services/Profesor.service';
-import { UsuariosService } from 'src/app/Services/Usuarios.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Profesor} from 'src/app/Models/Profesor';
+import {Usuario} from 'src/app/Models/Usuario';
+import {ProfesorService} from 'src/app/Services/Profesor.service';
+import {UsuariosService} from 'src/app/Services/Usuarios.service';
 
 import Swal from 'sweetalert2';
+import {AuthService} from "../../Services/auth.service";
 
 
 @Component({
@@ -20,73 +21,97 @@ export class IniciarSesionComponent implements OnInit {
   public usuario: Usuario = new Usuario();
   public profesor: Profesor = new Profesor();
   public encontrado: boolean = false;
-  constructor(public _usuarioService: UsuariosService, public router: Router, public _profesoresService: ProfesorService) { }
+  token: string = '';
+
+  constructor(
+    private _usuarioService: UsuariosService,
+    private router: Router,
+    private _profesoresService: ProfesorService,
+    private authService: AuthService
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
   buscar(nombre: string, contra: string) {
 
-    if (nombre == "" || nombre == null) {
+    if (nombre === "" || nombre === null) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Olvidaste llenar el nombre',
       })
     } else {
-      if (contra == "") {
+      if (contra === "") {
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
           text: 'olvidaste llenar la contraseña',
         })
       } else {
-        for (let usu of this._usuarioService.vertedero) {
-          if (usu.nombre == nombre && usu.contra == contra) {
-            Swal.fire('Bienvenido', 'Has iniciado sesión exitosamente!', 'success')
-            localStorage.setItem('user', usu.nombre);
-            this.usuario = new Usuario();
-            this._usuarioService.actual = usu;
-            this.router.navigateByUrl('./home');
-            this.encontrado = true;
+        this.authService.login(nombre, contra).subscribe({
+          next: res => {
+            this.token = res.idToken;
+            this._usuarioService.getUser(nombre).subscribe({
+              next: res => {
+                const keys = Object.keys(res);
+                if (keys.length !== 0) {
+                  const name = keys[0];
+                  localStorage.setItem('user', JSON.stringify(res[name]));
+                  localStorage.setItem('role', 'Estudiante');
+                  localStorage.setItem('token', this.token);
+                  Swal.fire('Bienvenido', 'Has iniciado sesión como estudiante!', 'success');
+                  this.encontrado = true;
+                  this.router.navigate(['/student-home']);
+                }
+              }
+            });
+            this._profesoresService.getTeacher(nombre).subscribe({
+              next: res => {
+                const keys = Object.keys(res);
+                if (keys.length !== 0) {
+                  const name = keys[0];
+                  localStorage.setItem('user', JSON.stringify(res[name]));
+                  localStorage.setItem('role', 'Profesor');
+                  localStorage.setItem('token', this.token);
+                  Swal.fire('Bienvenido', 'Has iniciado sesión como profesor!', 'success');
+                  this.encontrado = true;
+                  this.router.navigate(['/teacher-home']);
+                }
+              }
+            });
+          },
+          error: err => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Parece que ese usuario o contraseños son incorrectos',
+            })
           }
-        }
-
-        for (let profe of this._profesoresService.profesores) {
-          if(profe.nombre == nombre && profe.contra == contra) {
-            localStorage.setItem('user', profe.nombre);
-            Swal.fire('Bienvenido ' + profe.nombre, 'Ha iniciado sesión como profesor@', 'success')
-            this.profesor = new Profesor();
-            this._profesoresService.profeActual = profe;
-            this.router.navigateByUrl('./home');
-            this.encontrado = true;
-          }
-        }
+        });
 
         if (!this.encontrado) {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Parece que ese usuario o contraseños son incorrectos',
-          })
+            text: 'Usuario no encontrado',
+          });
         }
       }
     }
-
-
   }
 
   cancelar() {
-    this.router.navigateByUrl('');
+    this.router.navigate(['']);
     localStorage.clear();
   }
 
-  registrar_profesor(){
-    this.router.navigateByUrl('./registrar-profesor');
+  registrar_profesor() {
+    this.router.navigate(['/registrar-profesor']);
   }
 
-  registrar_estudiante(){
-    this.router.navigateByUrl('./registrar-estudiante');
+  registrar_estudiante() {
+    this.router.navigate(['/registrar-estudiante']);
   }
-
 }

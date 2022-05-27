@@ -1,0 +1,44 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+}
+
+.alert-box {
+  position: fixed;
+  top: 30vh;
+  left: 20vw;
+  width: 60vw;
+  padding: 16px;
+  z-index: 100;
+  background-color: #ffe677;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.alert-box-actions {
+  text-align: right;
+}
+.alert-box{
+  margin-bottom: 5px;
+      font-family: "Montserrat", sans-serif;
+      color: black;
+      font-size: 15px;
+}
+input{
+  padding-inline-start: 5px;
+      caret-color: white;
+      height: 30px;
+      margin-top: 2%;
+      margin-left: 5%;
+      width: 30%;
+      border: none;
+      background-color: grey;
+      border-radius: 8px;
+      color: white;
+}
+

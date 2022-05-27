@@ -1,0 +1,149 @@
+<app-create-class-modal *ngIf="enabledCreateClass" [userId]="userId" [teacherId]="teacherId" (closeAlert)="onClose()">
+</app-create-class-modal>
+<div class="background">
+    <section>
+        <div class="info-container">
+            <input type="radio" id="contentBeneficiaries" name="mycontents" checked="checked" />
+            <label for="contentBeneficiaries">Información</label>
+            <section class="content">
+                <section class="first-content">
+                    <div class="image-content">
+                        <div class="image"></div>
+                    </div>
+      
+                    <div class="description-content">
+                        <div class="info-content">
+                            <div class="box">
+                                <h1>{{teacher.nombre}}</h1>
+                            </div>
+                            <p>
+                                Soy una persona muy responsable y entusiasta. Tengo una clara vocación orientada a la
+                                enseñanza y al aprendizaje. Si desean obtener alguna información más acerca de mi
+                                persona o de mi trayectoria profesional, no duden en ponerse en contacto conmigo.
+                                Agradeciéndoles de antemano su atención, reciban un cordial saludo.
+                            </p>
+                            <hr />
+                            <div class="box">
+                                <h1>¿Y si tratas de verlo de otra forma?</h1>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+      
+            <input type="radio" id="content-assistance" name="mycontents" />
+            <label for="content-assistance">Materias</label>
+      
+            <div class="content">
+                <section class="second-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Calificación</th>
+                                <th>Consultas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let materia of teacher.materias">
+                                <td>{{materia}}</td>
+                                <td>5</td>
+                                <th>20</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+      
+            <input type="radio" id="content-bonus" name="mycontents" />
+            <label for="content-bonus">Metodología</label>
+            <div class="content">
+                <section class="third-content second-content">
+                   <img src="assets/images/profesorVIdeo.jpg" alt="">
+                </section>
+            </div>
+            <input type="radio" id="comments" name="mycontents" />
+            <label for="comments">Comentarios</label>
+            <div class="content">
+                <section class="third-content second-content">
+                    <div class="containerr">
+                        <div class="boxi">
+                          <h1>Nombre Usuario</h1>
+                          <hr />
+                          <p>muy buen profesor todo se hace más fácil</p>                          
+                      </div>
+                      <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    <div class="boxi">
+                        <h1>Nombre Usuario</h1>
+                        <hr />
+                        <p>muy buen profesor todo se hace más fácil</p>                          
+                    </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+      </section>
+      <div class="buttons-container">
+        <button (click)="onOpen()">Agendar clase</button>
+        <button>Comentar</button>
+      </div>
+</div>

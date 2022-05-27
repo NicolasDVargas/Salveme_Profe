@@ -1,0 +1,9 @@
+<div class="backdrop" (click)="onClose()"></div>
+<div class="alert-box">
+  <select [(ngModel)]="value">
+    <option *ngFor="let qualification of qualifications">{{qualification}}</option>
+  </select>
+  <div class="alert-box-actions">
+    <button class="btn btn-primary" (click)="onUpdateTeacher()">Calificar profesor</button>
+  </div>
+</div>

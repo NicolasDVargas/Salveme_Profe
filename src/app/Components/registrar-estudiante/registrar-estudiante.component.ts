@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Usuario } from 'src/app/Models/Usuario';
-import { UsuariosService } from 'src/app/Services/Usuarios.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Usuario} from 'src/app/Models/Usuario';
+import {UsuariosService} from 'src/app/Services/Usuarios.service';
 import Swal from 'sweetalert2';
+import {AuthService} from "../../Services/auth.service";
 
 @Component({
   selector: 'app-registrar-estudiante',
@@ -12,8 +13,14 @@ import Swal from 'sweetalert2';
 export class RegistrarEstudianteComponent implements OnInit {
 
   public estudiante: Usuario = new Usuario();
+  token: string = '';
 
-  constructor(private _estudianteService: UsuariosService, private router: Router) { }
+  constructor(
+    private _estudianteService: UsuariosService,
+    private router: Router,
+    private authService: AuthService
+  ) {
+  }
 
   ngOnInit(): void {
   }
@@ -61,10 +68,34 @@ export class RegistrarEstudianteComponent implements OnInit {
                   text: 'No se ingreso el semestre!',
                 })
               } else {
-                this._estudianteService.agregar(this.estudiante.nombre, this.estudiante.contra, this.estudiante.email, this.estudiante.carrera,this.estudiante.edad,this.estudiante.semestre);
-                this.estudiante = new Usuario();
-                this.router.navigateByUrl('./inventario');
-
+                this.authService.register(this.estudiante.email, this.estudiante.contra).subscribe({
+                  next: res => {
+                    this.estudiante.id = res.localId;
+                    this.token = res.idToken;
+                    this._estudianteService.createUser(this.estudiante).subscribe({
+                      next: res => {
+                        localStorage.setItem('user', JSON.stringify(this.estudiante));
+                        localStorage.setItem('role', 'Estudiante');
+                        localStorage.setItem('token', this.token);
+                        this.router.navigate(['/student-home']);
+                      },
+                      error: err => {
+                        Swal.fire({
+                          icon: 'error',
+                          title: 'Oops...',
+                          text: 'Ha ocurrido un error en el registro del usuario ' + err.error.error.message,
+                        })
+                      }
+                    })
+                  },
+                  error: err => {
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Oops...',
+                      text: 'Ha ocurrido un error en el registro del usuario ' + err.error.error.message,
+                    })
+                  }
+                })
               }
 
             }
@@ -76,7 +107,7 @@ export class RegistrarEstudianteComponent implements OnInit {
   }
 
   cancelar() {
-    this.router.navigateByUrl('./iniciar');
+    this.router.navigate(['/iniciar']);
   }
 
 }

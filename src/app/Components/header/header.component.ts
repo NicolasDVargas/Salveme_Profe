@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ProfesorService } from 'src/app/Services/Profesor.service';
-import { UsuariosService } from 'src/app/Services/Usuarios.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {ProfesorService} from 'src/app/Services/Profesor.service';
+import {UsuariosService} from 'src/app/Services/Usuarios.service';
 
 @Component({
   selector: 'app-header',
@@ -10,25 +10,28 @@ import { UsuariosService } from 'src/app/Services/Usuarios.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public router: Router, public _profesorService: ProfesorService, public _usuService:UsuariosService) { }
+  constructor(public router: Router, public _profesorService: ProfesorService, public _usuService: UsuariosService) {
+  }
 
   ngOnInit(): void {
   }
 
   home() {
-    this.router.navigateByUrl('./home')
+    this.router.navigate(['/home'])
   }
+
   inventario() {
-    this.router.navigateByUrl('./inventario')
+    this.router.navigate(['/inventario'])
   }
+
   cerrarSesion() {
     localStorage.clear();
     this._profesorService.limpiar();
     this._usuService.limpiar();
-    this.router.navigateByUrl('');
+    this.router.navigate(['']);
   }
 
-  revizarProfe(): boolean {
+  revisarProfe(): boolean {
     var nomUsuario = localStorage.getItem('user');
     if (nomUsuario != null) {
       for (let prof of this._profesorService.profesores) {
@@ -40,15 +43,15 @@ export class HeaderComponent implements OnInit {
     return false;
   }
 
-  carrito(){
-    this.router.navigateByUrl("./carrito")
+  carrito() {
+    this.router.navigate(["/carrito"])
   }
 
-  perfil(){
-    this.router.navigateByUrl("./perfil")
+  perfil() {
+    this.router.navigate(["/perfil"])
   }
 
-  revizar(): boolean {
+  revisar(): boolean {
     var nomUsuario = localStorage.getItem('user');
     if (nomUsuario != null) {
       for (let usu of this._usuService.vertedero) {
@@ -60,9 +63,9 @@ export class HeaderComponent implements OnInit {
     return false;
   }
 
-  Inicio(){
+  Inicio() {
     localStorage.clear();
-    this.router.navigateByUrl('./iniciar');
+    this.router.navigate(['/iniciar']);
   }
 
 }

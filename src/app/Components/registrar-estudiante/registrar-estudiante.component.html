@@ -1,32 +1,36 @@
-<div class="formContainer">
-    <form>
-        <div class="formgroup">
-            <label for="Nombre-estudiante">Nombre: </label>
-            <input [(ngModel)]="estudiante.nombre" name="nombre" type="text" class="form-control" id="Nombre-estudiante" placeholder="Ingrese aca el nombre del estudiante" >
-        </div>
-        <div class="formgroup">
-            <label for="contrasenna-estudiantes">Contraseña: </label>
-            <input [(ngModel)]="estudiante.contra"  name="contra" type="password" class="form-control" id="Contraestudiante" placeholder="Ingrese aca su contraseña">
-        </div>
-        <div class="formgroup">
-            <label for="Costoestudiante">Email: </label>
-            <input [(ngModel)]="estudiante.email" name="email" type="email" class="form-control" id="Emailestudiante" placeholder="Ingrese su email">
-        </div>
-        <div class="formgroup">
-            <label for="Costoestudiante">Carrera: </label>
-            <input [(ngModel)]="estudiante.carrera" name="Carrera" type="text" class="form-control" id="CarreraEstudiante" placeholder="Ingrese su Carrera">
-        </div>
-        <div class="formgroup">
-            <label for="Costoestudiante">Edad: </label>
-            <input [(ngModel)]="estudiante.edad" name="edad" type="number" class="form-control" id="EdadEstudiante" placeholder="Ingrese su edad">
-        </div>
-        <div class="formgroup">
-            <label for="Costoestudiante">Semestre: </label>
-            <input [(ngModel)]="estudiante.semestre" name="semestre" type="number" class="form-control" id="SemestreEstudiante" placeholder="Ingrese su semestre">
-        </div>
-        <div class="buttonsDiv">
-            <button type="submit" class="buttonS" (click)="registrar()">Registrar</button>
-            <button type="button" class="buttonC" (click)="cancelar()">Cancelar</button>
-        </div>
-    </form>
+<div class="background">
+    <div class="form-Container">
+        <form>
+            <h2>Registro de Estudiante</h2>
+            <div class="formgroup">
+                <label for="Nombre-estudiante">Nombre: </label>
+                <input [(ngModel)]="estudiante.nombre" name="nombre" type="text" class="form-control" id="Nombre-estudiante" placeholder="Ingrese aca el nombre del estudiante" >
+            </div>
+            <div class="formgroup">
+                <label for="contrasenna-estudiantes">Contraseña: </label>
+                <input [(ngModel)]="estudiante.contra"  name="contra" type="password" class="form-control" id="Contraestudiante" placeholder="Ingrese aca su contraseña">
+            </div>
+            <div class="formgroup">
+                <label for="Costoestudiante">Email: </label>
+                <input [(ngModel)]="estudiante.email" name="email" type="email" class="form-control" id="Emailestudiante" placeholder="Ingrese su email">
+            </div>
+            <div class="formgroup">
+                <label for="Costoestudiante">Carrera: </label>
+                <input [(ngModel)]="estudiante.carrera" name="Carrera" type="text" class="form-control" id="CarreraEstudiante" placeholder="Ingrese su Carrera">
+            </div>
+            <div class="formgroup">
+                <label for="Costoestudiante">Edad: </label>
+                <input [(ngModel)]="estudiante.edad" name="edad" type="number" class="form-control" id="EdadEstudiante" placeholder="Ingrese su edad">
+            </div>
+            <div class="formgroup">
+                <label for="Costoestudiante">Semestre: </label>
+                <input [(ngModel)]="estudiante.semestre" name="semestre" type="number" class="form-control" id="SemestreEstudiante" placeholder="Ingrese su semestre">
+            </div>
+            <div class="buttonsDiv">
+                <button type="submit" class="buttonS" (click)="registrar()">Registrar</button>
+                <button type="button" class="buttonC" (click)="cancelar()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+    
 </div>

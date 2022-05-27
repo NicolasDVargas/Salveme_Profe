@@ -6,26 +6,26 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navPrincipalDiv">
-      <ul class="navPrincipal">      
-        <li *ngIf="revizarProfe() else elseBlock2" class="nav-item">
+      <ul class="navPrincipal">
+        <li *ngIf="revisarProfe() else elseBlock2" class="nav-item">
           <a class="button" role="button" (click)="inventario()">Inventario</a>
-        </li> 
-        <li *ngIf="revizarProfe()" class="nav-item">
+        </li>
+        <li *ngIf="revisarProfe()" class="nav-item">
           <a class="button" role="button" (click)="cerrarSesion()">Cerrar sesion</a>
-        </li>        
+        </li>
         <ng-template #elseBlock2>
-          <li *ngIf="revizar() else elseBlock" class="nav-item">
+          <li *ngIf="revisar() else elseBlock" class="nav-item">
             <a class="button" role="button" (click)="perfil()">Perfil</a>
           </li>
-          <li *ngIf="revizar()" class="nav-item">
+          <li *ngIf="revisar()" class="nav-item">
             <a class="button" role="button" aria-current="page" (click)='home()'>Home</a>
           </li>
-          <li *ngIf="revizar()" class="nav-item">
+          <li *ngIf="revisar()" class="nav-item">
             <a class="button" role="button" (click)="carrito()">Carrito</a>
           </li>
-          <li *ngIf="revizar()" class="nav-item">
+          <li *ngIf="revisar()" class="nav-item">
             <a class="button" role="button" (click)="cerrarSesion()">Cerrar sesion</a>
-          </li> 
+          </li>
           <ng-template #elseBlock>
             <a class="button" role="button" (click)='Inicio()'>Ingresar</a>
           </ng-template>

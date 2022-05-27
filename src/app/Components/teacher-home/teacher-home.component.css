@@ -1,0 +1,166 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+html {
+  background-color: #0b1437;
+}
+section h2 {
+  font-size: 15px;
+  color: white;
+}
+section div.box {
+  color: white;
+  width: 95%;
+  height: 42vh;
+  margin: auto;
+  border-radius: 9px;
+  padding-left: 2%;
+  padding-right: 2%;
+  background-color: #111c44;
+  padding-top: 2%;
+}
+section div.projects-container {
+  margin-top: 2%;
+}
+
+section div table {
+  margin: auto;
+  width: 100%;
+  min-width: fit-content;
+  text-align: center;
+}
+section div table th {
+  width: 30%;
+  height: 10%;
+  font-size: 10px;
+  color: gray;
+  text-align: center;
+}
+section div table td {
+  text-align: center;
+  height: 15%;
+}
+section div table td div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1% 5%;
+}
+section div table img {
+  width: 3em;
+  height: 3em;
+  border-radius: 50px;
+  margin-right: 2%;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+html {
+  background-color: #0b1437;
+}
+nav.nav-contenedor {
+  display: flex;
+  background-color: #111c44;
+  flex-direction: column;
+  border-radius: 8px;
+  width: 30vw;
+  height: 87vh;
+}
+nav div.opciones-contenedor {
+  width: 95%;
+  margin: auto;
+  margin-bottom: 2%;
+  height: 35%;
+}
+nav div.opciones-contenedor ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  padding: 2%;
+  padding-top: 2%;
+}
+nav div.opciones-contenedor ul li {
+  color: white;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
+nav div.opciones-contenedor ul li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+body section nav div.opciones-contenedor ul li:hover {
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+}
+
+section nav div.botones-contenedor {
+  width: 70%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 2%;
+}
+section nav div.botones-contenedor button {
+  background-color: #4ab655;
+  color: white;
+  height: 15%;
+  border-radius: 8px;
+  border: none;
+}
+section nav div.botones-contenedor button:hover {
+  background-color: white;
+  color: black;
+}
+section nav div:nth-child(3) {
+  margin: auto;
+}
+section nav div:nth-child(3) span {
+  color: white;
+}
+
+section nav div:nth-child(3) span a {
+  height: 100%;
+  color: white;
+  text-decoration: none;
+}
+section nav div:nth-child(3) span a:hover {
+  color: #4ab655;
+}
+
+.side-menu {
+  width: 30%;
+  max-width: 30%;
+  margin-right: 2%;
+  margin-top: 3%;
+}
+
+.main-content {
+  width: 80%;
+  padding-left: 0;
+  margin: 0;
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+.container {
+    display: flex;
+    margin: 0;
+    
+
+}
+.background{
+  background-color: tomato;
+  width: 100vw;
+  height: 100vh;
+}

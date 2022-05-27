@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Profesor } from 'src/app/Models/Profesor';
-import { ProfesorService } from 'src/app/Services/Profesor.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Profesor} from 'src/app/Models/Profesor';
+import {ProfesorService} from 'src/app/Services/Profesor.service';
+import {AuthService} from "../../Services/auth.service";
 
 @Component({
   selector: 'app-inicio',
@@ -10,12 +11,26 @@ import { ProfesorService } from 'src/app/Services/Profesor.service';
 })
 export class InicioComponent implements OnInit {
 
-  constructor(private router:Router, public _profesoresService:ProfesorService) { }
-  public profe: Profesor =new Profesor();
+  constructor(
+    private router: Router,
+    public _profesoresService: ProfesorService,
+    public authService: AuthService
+  ) {
+  }
 
-  ngOnInit(): void {}
+  public profe: Profesor = new Profesor();
 
-  iniciar(){
-    this.router.navigateByUrl('./iniciar');
+  ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      const role = localStorage.getItem('role');
+      if (role === 'Profesor')
+        this.router.navigate(['/teacher-home']);
+      else
+        this.router.navigate(['/student-home']);
+    }
+  }
+
+  iniciar() {
+    this.router.navigate(['/iniciar']);
   }
 }
